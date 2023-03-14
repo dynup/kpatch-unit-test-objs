@@ -1,0 +1,7 @@
+#!/bin/bash
+source $KPATCH_TEST_LIBRARY
+
+# $ nm cmdline-ubsan.OUTPUT.o | grep -i " t "
+# 0000000000000010 t cmdline_proc_show
+# 0000000000000000 t __pfx_cmdline_proc_show
+assert_num_funcs 2
