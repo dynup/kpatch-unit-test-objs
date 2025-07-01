@@ -1,0 +1,15 @@
+#!/bin/bash
+source $KPATCH_TEST_LIBRARY
+
+TESTFILE=$(basename "$0")
+OUTFILE=${TESTFILE%.test}.OUTPUT.o
+
+# Verify there are four namespace imports in the resulting .modinfo section, e.g.
+#
+#   String dump of section '.modinfo':
+#     [     0]  import_ns=KPATCH_TEST2
+#     [    17]  import_ns=KPATCH_TEST
+#     [    2d]  import_ns=DEVMEM
+#     [    3e]  import_ns=DMA_BUF
+
+[[ $(readelf --wide --string-dump=.modinfo "$OUTFILE" | grep --count -e 'import_ns=') == 4 ]]
