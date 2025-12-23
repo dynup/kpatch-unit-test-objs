@@ -1,0 +1,7 @@
+#!/bin/bash
+source $KPATCH_TEST_LIBRARY
+
+#0000000000000000 t __kpatch_do_sys_newuname
+#0000000000000000 t __se_sys_newuname
+
+assert_num_funcs 2
