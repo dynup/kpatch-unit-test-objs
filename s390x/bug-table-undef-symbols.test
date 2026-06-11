@@ -1,0 +1,6 @@
+#!/bin/bash
+source $KPATCH_TEST_LIBRARY
+
+# $ nm bug-table-undef-symbols.OUTPUT.o | grep -i " t "
+# 0000000000000000 t kernel_clone
+ assert_num_funcs 1
