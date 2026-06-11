@@ -1,0 +1,4 @@
+#!/bin/bash
+source $KPATCH_TEST_LIBRARY
+
+readelf --wide --sections stack-protector-loc.OUTPUT.o | grep -q '__stack_protector_loc'
